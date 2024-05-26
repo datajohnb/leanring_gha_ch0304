@@ -26,7 +26,7 @@ jobs:
           echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
-          echo "${{ GITHUB_EVENT_NAME }}"       # ADDED
+          echo "${{ env.GITHUB_EVENT_NAME }}"       # ADDED
   windows:
     env:
       JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for windows'
