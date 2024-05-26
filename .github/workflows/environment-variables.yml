@@ -15,15 +15,18 @@ jobs:
         env:
           STEP_ENVIRONMENT_VARIABLE: 'custom step environment variable for bash'
         run: |
-          echo "Accessing environment variables in run command"
+          echo "Accessing environment variables in run command (using Shell syntax)"
           echo "$WORKSPACE_ENVIRONMENT_VARIABLE"
           echo "$JOB_ENVIRONMENT_VARIABLE"
           echo "$STEP_ENVIRONMENT_VARIABLE"
+          echo "$GITHUB_WORKSPACE"              # ADDED
+          echo "$GITHUB_ACTOR"                  # ADDED
           echo "------------------------------------------------------"
-          echo "Accessing environment variables using env context"
+          echo "Accessing environment variables using env context (with YAML syntax)"
           echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
+          echo "${{ GITHUB_EVENT_NAME }}"       # ADDED
   windows:
     env:
       JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for windows'
@@ -37,6 +40,7 @@ jobs:
           echo "$Env:WORKSPACE_ENVIRONMENT_VARIABLE"
           echo "$Env:JOB_ENVIRONMENT_VARIABLE"
           echo "$Env:STEP_ENVIRONMENT_VARIABLE"
+          echo "$Env:GITHUB_WORKSPACE"            # ADDED
           echo "------------------------------------------------------"
           echo "Accessing environment variables using env context"
           echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
