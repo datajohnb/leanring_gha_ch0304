@@ -21,14 +21,13 @@ jobs:
           echo "$STEP_ENVIRONMENT_VARIABLE"
           echo "$GITHUB_WORKSPACE"                  # ADDED
           echo "$GITHUB_ACTOR"                      # ADDED
+          echo "$GITHUB_REF"                        # ADDED
           echo "------------------------------------------------------"
           echo "Accessing environment variables using env context (with YAML syntax)"
           echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
           echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
           echo "${{ env.GITHUB_EVENT_NAME }}"       # ADDED
-          echo "${{ env.GITHUB_SHA }}"              # ADDED
-          echo "${{ env.GITHUB_REF }}"              # ADDED
   windows:
     env:
       JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for windows'
